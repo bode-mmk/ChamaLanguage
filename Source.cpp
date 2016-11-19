@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+//#include <unordered_map>
 
 enum struct execute_type {
 	move_next,
@@ -17,7 +18,12 @@ enum struct execute_type {
 	unknown
 };
 
-//chikara-waza
+//This is so chikarawaza
+//TODO:
+//		This method can exchange the using unorderd_map
+//		If I find the way to create hash from std::pair<std::string, std::string> like boost.hash_combine without boost,
+//		I will try to refine.
+//
 execute_type get_execute_type(const std::string& first_token, const std::string& second_token) {
 	if (first_token == "ÇøÇ·Ç‹ÅB" && second_token == "ÇøÇ·Ç‹ÅH") {
 		return execute_type::move_next;
