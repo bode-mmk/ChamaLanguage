@@ -62,7 +62,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	std::string filename = argv[1];
-	std::cout << filename << std::endl;
+	std::cout << "loading file" <<  filename << std::endl;
 
 	//stacks code memorys
 	std::unique_ptr<unsigned short[]> data(new unsigned short[MAX_DATA_SIZE]);
@@ -85,20 +85,18 @@ int main(int argc, char* argv[]) {
 	input_file.open(filename, std::ios::in);
 
 	std::string line;
-
 	//read file and anlyzing, to container
 	while (!input_file.eof()) {
 		//read by line
 		std::getline(input_file, line);
-		std::cout << line << std::endl;
-
+		
 		//read by delimiter from line to line-end
 		const char delimiter = ' ';
 		std::string separated_string_buffer;
 		std::istringstream line_separator(line);
 
 		while (std::getline(line_separator, separated_string_buffer, delimiter)) {
-			std::cout << "[" << separated_string_buffer << "]" << std::endl;
+			//std::cout << "[" << separated_string_buffer << "]" << std::endl;
 			row_data.push_back(separated_string_buffer);
 		}
 	}
